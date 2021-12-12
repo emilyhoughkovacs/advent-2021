@@ -61,16 +61,18 @@ class Solution(object):
                     points[(i, j)]=0
             for a, b in flashed:
                 points[(a,b)]=0
-            # print("len(flashed), flashed:", len(flashed), flashed)
             return points
 
-        numFlashed = len(flashed)
-        for n in range(100):
+        numFlashed = 0
+        numRounds = 0
+        while numFlashed!=100:
             take_round()
-            numFlashed+=len(flashed)
+            numRounds+=1
+            numFlashed=len(flashed)
+            # print("numRounds, numFlashed: ", numRounds, numFlashed)
             flashed = []
 
-        return numFlashed
+        return numRounds
 
 def main():
     s = Solution()
