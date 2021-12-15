@@ -40,7 +40,10 @@ class Solution(object):
         counter = Counter(blah)
         print(counter)
 
-        return pair_insertion
+        maxVal = max(counter.values())
+        minVal = min(counter.values())
+
+        return maxVal-minVal
 
 def main():
     s = Solution()
